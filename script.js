@@ -37,17 +37,17 @@ function getColor(c)
   x = Math.ceil(c);
   switch (Math.ceil(x)) {
     case 1:
-      return "#ffffcc";
+      return "#00cc00";
     case 2:
       return "#c7e9b4";
     case 3:
-      return "#7fcdbb";
+      return "#ccff66";
     case 4:
-      return "#41b6c4";
+      return "#ffff66";
     case 5:
-      return "#2c7fb8";
+      return "#ff6600";
     default:
-      return "#253494";
+      return "#ff0000";
   }
 }
 
