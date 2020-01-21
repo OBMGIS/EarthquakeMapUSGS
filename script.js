@@ -95,8 +95,8 @@ function createMap(earthquakes) {
 
   // Create our map
   var myMap = L.map("map", {
-    center: [40.75, -111.87],
-    zoom: 5,
+    center: [26.97, -39.90],
+    zoom: 3,
     layers: [lightmap, earthquakes]
   });
     console.log(myMap);
