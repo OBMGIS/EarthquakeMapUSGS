@@ -56,12 +56,12 @@ function createFeatures(earthquakeData) {
   var earthquakes = L.geoJson(earthquakeData,{
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, {
-        radius: feature.properties.mag*5,
+        radius: feature.properties.mag*3,
         fillColor: getColor(feature.properties.mag),
         color: "#000",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.9})
+        fillOpacity: 0.8})
         .bindPopup("<h3>" + "Location: " + feature.properties.place +
           "</h3><hr><p>" + "Date/Time: " + new Date (feature.properties.time) + "<br>" + 
           "Magnitude: " + feature.properties.mag + "</p>");
