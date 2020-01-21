@@ -75,8 +75,8 @@ function createFeatures(earthquakeData) {
 function createMap(earthquakes) {
 
   // Define base layer
-  var lightmap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
-                                "mapbox://styles/obmgis/ck5n4ij5s116s1ipb257kt3gb"
+  var lightmap = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}");
+                               
 //GET NEW DARKMAP LAYER FROM MAPBOX
   var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib2JtZ2lzIiwiYSI6ImNqZWZ6MmZpczFtNGgyeG9kM3p4NTdjNmsifQ.HQ3o72yFNd8bXl_UpSs9wQ");
 
