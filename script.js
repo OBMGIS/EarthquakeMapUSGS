@@ -78,7 +78,7 @@ function createMap(earthquakes) {
   var lightmap = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}");
                                
 //GET NEW DARKMAP LAYER FROM MAPBOX
-  var darkmap = L.tileLayer("https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png");
+  var darkmap = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png");
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
