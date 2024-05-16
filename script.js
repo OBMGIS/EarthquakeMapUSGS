@@ -66,17 +66,22 @@ function createFeatures(earthquakeData) {
 
 function createMap(earthquakes) {
   // Define base layers
-  var lightmap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  var opentopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
   });
 
   var darkmap = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>'
   });
 
+  // Log to confirm tile layers
+  console.log("OpenTopoMap Layer:", opentopo);
+  console.log("Dark Map Layer:", darkmap);
+
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
-    "Light Map": lightmap,
+    "OpenTopoMap": opentopo,
     "Dark Map": darkmap
   };
 
@@ -89,8 +94,11 @@ function createMap(earthquakes) {
   var myMap = L.map("map", {
     center: [26.97, -39.90],
     zoom: 3,
-    layers: [lightmap, earthquakes]
+    layers: [opentopo, earthquakes]
   });
+
+  // Log to confirm map creation
+  console.log("Map Object:", myMap);
 
   // Create a layer control
   // Pass in our baseMaps and overlayMaps
