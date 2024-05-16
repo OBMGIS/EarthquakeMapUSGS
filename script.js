@@ -73,20 +73,20 @@ function createFeatures(earthquakeData) {
 }
 
 function createMap(earthquakes) {
+  // Define base layers
+  var lightmap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  });
 
-  // Define base layer
-  var lightmap = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}");
-                               
-//GET NEW DARKMAP LAYER FROM MAPBOX
-  var darkmap = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png");
+  var darkmap = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>'
+  });
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
     "Light Map": lightmap,
     "Dark Map": darkmap
   };
-
-  
 
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
@@ -99,15 +99,14 @@ function createMap(earthquakes) {
     zoom: 3,
     layers: [lightmap, earthquakes]
   });
-    console.log(myMap);
 
-//   Create a layer control
-//   Pass in our baseMaps and overlayMaps
-//   Add the layer control to the map
+  // Create a layer control
+  // Pass in our baseMaps and overlayMaps
+  // Add the layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
-   }).addTo(myMap);
-  
-  //Add legend to myMap
+  }).addTo(myMap);
+
+  // Add legend to myMap
   legend.addTo(myMap);
 }
